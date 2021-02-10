@@ -2,11 +2,13 @@ package entities;
 
 import java.util.*;
 
-public class PrintService {
+public class PrintService<Type> {
 	
-	private List<Object> list = new ArrayList<>();
+	// a classe agora e generics possui <> e um argumento identificando o Tipo de object que ela pode assumir.
 	
-	public void addValue(Object value) {
+	private List<Type> list = new ArrayList<>();
+	
+	public void addValue(Type value) {
 		list.add(value);
 	}
 
@@ -22,7 +24,7 @@ public class PrintService {
 		System.out.println("]");
 	}
 
-	public Object first() {
+	public Type first() {
 		if(list.isEmpty()) {
 			throw new IllegalStateException("List is empty");
 		}
